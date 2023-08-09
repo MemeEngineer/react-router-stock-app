@@ -1,5 +1,8 @@
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
+import './DashBoard.css'
+
+
 
 export default function DashBoard(){
 const [stocks, setStock] = useState([])
@@ -12,7 +15,8 @@ const url = `https://financialmodelingprep.com/api/v3/available-traded/list?&lim
 const getStock = async() => {
     try{
     const res = await fetch(url);
-    const data = await res.json();
+    const dataArr = await res.json();
+    const data = dataArr.slice(0,10)
     setStock(data);
     console.log(data)
     }catch(e){
@@ -29,13 +33,25 @@ useEffect(()=> {
     return(
         <div>
             <h1>Dash</h1>
+            <table>
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Symbol</th>
+                        <th>Price</th>
+                    </tr>
             {stocks.map((stock)=> {
                 return(
-                    <div>
-                        {stock.symbol}
-                        </div>
+                    
+                    <tr>
+                   <td>{stock.name}</td>
+                   <td>{stock.symbol}</td>
+                   <td>{stock.price}</td>
+                    </tr>
+                
+                       
                 )
             })}
+            </table>
         </div>
     )
 }
