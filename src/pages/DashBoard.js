@@ -31,8 +31,10 @@ useEffect(()=> {
 
 
     return(
-        <div>
+        <div className="dash">
             <h1>Dash</h1>
+            <div className="table">
+            
             <table>
                     <tr>
                         <th>Company Name</th>
@@ -45,13 +47,14 @@ useEffect(()=> {
                     <tr>
                    <td>{stock.name}</td>
                    <td>{stock.symbol}</td>
-                   <td>{stock.price}</td>
+                   <td>${stock.price}</td>
                     </tr>
                 
                        
                 )
             })}
             </table>
+            </div>
         </div>
     )
 }

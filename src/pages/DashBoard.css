@@ -1,3 +1,14 @@
+.dash{
+    display:column;
+    justify-content: center;
+    align-items: center;
+}
+.table{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+}
 table, th, td {
     
     text-align: center;
@@ -10,11 +21,10 @@ table, th, td {
   }
 
   table tr:nth-child(odd) td {
-    background-color: red;
+    background-color: grey;
     border-width: 2px;
     border-style: solid;
     border-color: black;
-    
     color: black;
     font-weight: bold;
     padding: 2px;
@@ -27,4 +37,9 @@ table, th, td {
     border-color: black;
     font-weight: bold;
     padding: 2px;
+}
+th{
+    background-color: grey;
+    color: white;
+    
 }
