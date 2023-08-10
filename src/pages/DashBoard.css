@@ -1,5 +1,30 @@
 table, th, td {
-    border: 3vh green solid;
+    
+    text-align: center;
+    justify-content: center;
+    border: 5px solid black;
+    border-collapse: collapse;
+    width: 80%;  
     /* background-color: white; */
     
   }
+
+  table tr:nth-child(odd) td {
+    background-color: red;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    
+    color: black;
+    font-weight: bold;
+    padding: 2px;
+  }
+  table tr:nth-child(even) td{
+    background-color: #4C8BF5;
+    color: black;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    font-weight: bold;
+    padding: 2px;
+}
