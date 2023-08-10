@@ -45,21 +45,23 @@ setInfo(stock)
                         <th>Company Name</th>
                         <th>Symbol</th>
                         <th>Price</th>
+                        <th>Link</th>
                     </tr>
                     </thead>
                     <tbody>
             {stocks.map((stock, index)=> {
                 return(
-                    
-                    <Link to={`/stocks/${stock.symbol}`} onClick={()=> handleClick(stock)}>
+                    // <Link to={`/stocks/${stock.symbol}`} onClick={()=> handleClick(stock)}></Link>
+                   
                     <tr key={index}>
-                    
+            
                    <td>{stock.name}</td>
                    <td>{stock.symbol}</td>
                    <td>${stock.price}</td>
-                
+                   <td><Link to={`/stocks/${stock.symbol}`} onClick={()=> handleClick(stock)}>Info</Link></td>
+                   
                     </tr>
-                    </Link>
+                    
                     
                 
                 )
