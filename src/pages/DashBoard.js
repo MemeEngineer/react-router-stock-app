@@ -1,34 +1,38 @@
-import {useState, useEffect} from 'react'
-import {useParams} from 'react-router-dom'
+// import {useState, useEffect} from 'react'
+import {useParams, Link} from 'react-router-dom'
+
 import './DashBoard.css'
 
 
 
-export default function DashBoard(){
-const [stocks, setStock] = useState([])
-const apiKey = process.env.REACT_APP_STOCKAPI_KEY
-const params = useParams()
-const{symbol} = params;
+export default function DashBoard({stocks, setInfo}){
+// const [stocks, setStock] = useState([])
+// const apiKey = process.env.REACT_APP_STOCKAPI_KEY
+// const params = useParams()
+// const{symbol} = params;
 
-const url = `https://financialmodelingprep.com/api/v3/available-traded/list?&limit=10&apikey=${apiKey}`
+// const url = `https://financialmodelingprep.com/api/v3/available-traded/list?&limit=10&apikey=${apiKey}`
 
-const getStock = async() => {
-    try{
-    const res = await fetch(url);
-    const dataArr = await res.json();
-    const data = dataArr.slice(0,10)
-    setStock(data);
-    console.log(data)
-    }catch(e){
-        console.log('Error Fetching Data', e)
-    }
+// const getStock = async() => {
+//     try{
+//     const res = await fetch(url);
+//     const dataArr = await res.json();
+//     const data = dataArr.slice(0,10)
+//     setStock(data);
+    
+//     }catch(e){
+//         console.log('Error Fetching Data', e)
+//     }
    
+// }
+
+// useEffect(()=> {
+//     getStock()
+// },[])
+
+const handleClick =(stock)=>{
+setInfo(stock)
 }
-
-useEffect(()=> {
-    getStock()
-},[])
-
 
     return(
         <div className="dash">
@@ -36,23 +40,31 @@ useEffect(()=> {
             <div className="table">
             
             <table>
+                <thead>
                     <tr>
                         <th>Company Name</th>
                         <th>Symbol</th>
                         <th>Price</th>
                     </tr>
-            {stocks.map((stock)=> {
+                    </thead>
+                    <tbody>
+            {stocks.map((stock, index)=> {
                 return(
                     
-                    <tr>
+                    <Link to={`/stocks/${stock.symbol}`} onClick={()=> handleClick(stock)}>
+                    <tr key={index}>
+                    
                    <td>{stock.name}</td>
                    <td>{stock.symbol}</td>
                    <td>${stock.price}</td>
-                    </tr>
                 
-                       
+                    </tr>
+                    </Link>
+                    
+                
                 )
             })}
+            </tbody>
             </table>
             </div>
         </div>
