@@ -9,7 +9,8 @@ export default function DashBoard({stocks, setInfo}){
 // const [stocks, setStock] = useState([])
 // const apiKey = process.env.REACT_APP_STOCKAPI_KEY
 // const params = useParams()
-// const{symbol} = params;
+// const{symbol, name, price} = params;
+// console.log(params)
 
 // const url = `https://financialmodelingprep.com/api/v3/available-traded/list?&limit=10&apikey=${apiKey}`
 
@@ -51,6 +52,7 @@ setInfo(stock)
                     <tbody>
             {stocks.map((stock, index)=> {
                 return(
+                    
                     // <Link to={`/stocks/${stock.symbol}`} onClick={()=> handleClick(stock)}></Link>
                    
                     <tr key={index}>
@@ -58,12 +60,13 @@ setInfo(stock)
                    <td>{stock.name}</td>
                    <td>{stock.symbol}</td>
                    <td>${stock.price}</td>
+                   
                    <td><Link to={`/stocks/${stock.symbol}`} onClick={()=> handleClick(stock)}>Info</Link></td>
                    
                     </tr>
                     
                     
-                
+                    
                 )
             })}
             </tbody>

@@ -15,10 +15,13 @@ function App() {
   const url = `https://financialmodelingprep.com/api/v3/available-traded/list?&limit=10&apikey=${apiKey}`
 
 const getStock = async() => {
-    try{
+  
+  
+  try{
+    const randomNum= Math.floor(Math.random()* (50000 - 0) + 0) 
     const res = await fetch(url);
     const dataArr = await res.json();
-    const data = dataArr.slice(0,10)
+    const data = dataArr.slice(randomNum,randomNum + 10)
     setStock(data);
     
     }catch(e){
@@ -30,6 +33,7 @@ const getStock = async() => {
 useEffect(()=> {
     getStock()
 },[])
+
   return (
     <div className="App">
       <NavBar/>
@@ -37,7 +41,7 @@ useEffect(()=> {
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/stocks" element={<DashBoard stocks={stocks} setInfo={setInfo}/>}/>
-        <Route path="/stocks/:symbol" element={<Stock info={info}/>}/>
+        <Route path="/stocks/:symbol" element={<Stock info={info} />}/>
         <Route path="*" element={<Navigate to="/"/>}/>
       </Routes>
     </div>

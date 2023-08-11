@@ -1,7 +1,8 @@
+import {useParams} from 'react-router-dom'
 
 
 export default function Stock({info}){
-
+   
     return(
         <div>
             <h1>Stock</h1>
