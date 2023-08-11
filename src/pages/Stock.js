@@ -1,20 +1,21 @@
-import {useParams} from 'react-router-dom'
+import './Stock.css'
 
 
 export default function Stock({info}){
    
     return(
-        <div>
-            <h1>Stock</h1>
+        <div className="stock-container">
+            <div className="stock">
+                <div className="stock-card">
+                Stock
+                </div>
+            
             <ul>
-
-            <p> Company Name: {info.name}</p>
-            <p>Symbol: {info.symbol}</p>
-            <p>Price: ${info.price}</p>
+            <p><span>Company Name:</span> {info.name}</p>
+            <p><span>Symbol:</span> {info.symbol}</p>
+            <p><span>Price:</span> ${info.price}</p>
             </ul>
-            
-            
-
+            </div>
         </div>
     )
 }
