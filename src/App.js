@@ -13,6 +13,7 @@ function App() {
   const [info, setInfo] = useState()
   const apiKey = process.env.REACT_APP_STOCKAPI_KEY
   const url = `https://financialmodelingprep.com/api/v3/available-traded/list?&limit=10&apikey=${apiKey}`
+  
 
 const getStock = async() => {
   
